@@ -278,7 +278,6 @@ PCG_smooth <- function(m, q, lambda, X, y, pen_type = "curve", l = NULL, alpha_s
 #' y <- data$y_train
 #' MGCG_smooth(G = 3, q = c(3,3), lambda = 0.1, w = 0.8, X = X, y = y)
 #'
-#' @importFrom rTensor kronecker_list
 #' @importFrom Matrix Matrix KhatriRao t
 #' @export
 MGCG_smooth <- function(G, q, lambda, X, y, w = 0.1, nu = c(3,1), alpha_start = NULL, K_max = NULL, tolerance = 1e-6, print_error = TRUE, coarse_grid_solver = "Cholesky"){
@@ -330,7 +329,9 @@ MGCG_smooth <- function(G, q, lambda, X, y, w = 0.1, nu = c(3,1), alpha_start = 
       } else{
         tPhi_list_sparse_1 <- lapply(1:length(tPhi_list[[1]]), function(i) Matrix::Matrix(tPhi_list[[1]][[i]], sparse = TRUE) )
         tPhi_sparse <- Reduce(Matrix::KhatriRao, tPhi_list_sparse_1)
-        A_coarse <- tPhi_sparse %*% Matrix::t(tPhi_sparse) + lambda*Matrix::Matrix( Reduce("+", lapply( 1:length(Psi_list[[1]]), function(j) rTensor::kronecker_list(Psi_list[[1]][[j]]) ) ), sparse = TRUE )
+        #TODO: Remove this line
+        #A_coarse <- tPhi_sparse %*% Matrix::t(tPhi_sparse) + lambda*Matrix::Matrix( Reduce("+", lapply( 1:length(Psi_list[[1]]), function(j) rTensor::kronecker_list(Psi_list[[1]][[j]]) ) ), sparse = TRUE )
+        A_coarse <- tPhi_sparse %*% Matrix::t(tPhi_sparse) + lambda*Matrix::Matrix( Reduce("+", lapply( 1:length(Psi_list[[1]]), function(j) Reduce("%x%", Psi_list[[1]][[j]]) ) ), sparse = TRUE )      
       }
       U_chol <- chol(A_coarse)
     }, error = function(e){

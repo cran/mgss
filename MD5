@@ -1,9 +1,9 @@
-db933aebdb440fe7f533d230feba02d8 *DESCRIPTION
+d64f5f1508fafe629fd3f8cf2f0d390d *DESCRIPTION
 2aecd5ad1c500d91bf803f55531f2bfd *LICENSE
-eee93bb70238f484c1919b1be651a0e4 *NAMESPACE
+e982e027dbd21aeb606d801b09506047 *NAMESPACE
 9b21730f38e2ebb37db415212d740314 *R/RcppExports.R
 cda5f49fe7d29e2418755104f93007f9 *R/mgss-package.R
-71fc9b541192e2f2a2d48b98cdbd355b *R/mgss_main.R
+8a9322b43140b709cdbb5ccaacc74997 *R/mgss_main.R
 c51554f5cde78bcd8b8db0ee4efd8d92 *R/multigrid_functions.R
 813406cc5d438be39abb4d46aa18c4d9 *R/spline_functions.R
 7e07c6b5484a32e1a299b61f2348cfcc *R/test_data_functions.R
@@ -14,7 +14,7 @@ ea91a834e3ee9e9142ac45fd12a7d71d *man/MGCG_smooth.Rd
 bea34350e6b3a32c9d7821ffeac73737 *man/PCG_smooth.Rd
 b37f9da8174b685aef02b6525a5c6897 *man/estimate_trace.Rd
 50f67dde704139319a9baac40ba993a2 *man/generate_test_data.Rd
-b941f5a4b6efb4282ec1cd217d1c39e7 *man/mgss-package.Rd
+9a919bc4ecb77eeb7cbf74156daed28b *man/mgss-package.Rd
 81b277bf4b761ac70a1d856ef860100e *man/predict_smooth.Rd
 4464a7bb8a17b3fe01008b99b0092143 *src/Makevars
 4464a7bb8a17b3fe01008b99b0092143 *src/Makevars.win
